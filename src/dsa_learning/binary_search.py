@@ -14,12 +14,10 @@ def binary_search(array: List, value: int) -> Union[int, None]:
         val = array[mid]
         if val == value:
             return mid
-        elif val < value:
-            if low == mid:
-                break
-            low, high = mid, high
+        if (low == mid) or (high == mid):
+            break
+        if val < value:
+            low = mid
         else:
-            if high == mid:
-                break
-            low, high = low, mid
+            high = mid
     return None
